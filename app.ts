@@ -1,4 +1,6 @@
 ﻿/// <reference path="Scripts/Definitions/jquery.d.ts" />
+"use strict";
+
 class Greeter {
     element: HTMLElement;
     span: HTMLElement;

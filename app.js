@@ -1,4 +1,5 @@
 /// <reference path="Scripts/Definitions/jquery.d.ts" />
+"use strict";
 var Greeter = (function () {
     function Greeter(element) {
         this.element = element;
