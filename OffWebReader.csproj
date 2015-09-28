@@ -24,12 +24,10 @@
   <ItemGroup>
     <Content Include="app.css" />
     <Content Include="index.html" />
-    <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app.ts" />
-    <TypeScriptCompile Include="Scripts\Definitions\jquery.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <None Include="web.Debug.config">

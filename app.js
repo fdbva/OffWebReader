@@ -3,6 +3,9 @@ var OffWebReader;
 (function (OffWebReader) {
     class QueryFormatter {
         constructor(urlInput, xpath) {
+            this.makeQuery(urlInput, xpath);
+        }
+        makeQuery(urlInput, xpath) {
             this._yqlBaseUri = "https://query.yahooapis.com/v1/public/yql?";
             this._yqlQuery = `select * from html where url='${urlInput}'`;
             if (xpath != null) {
@@ -14,9 +17,16 @@ var OffWebReader;
         get yqlQuery() {
             return this._yqlQuery;
         }
+        callScraper() {
+        }
+        callScraperChapters() {
+        }
     }
     class InputUrlComponent {
         constructor(element) {
+            this.createComponent(element);
+        }
+        createComponent(element) {
             this.element = element;
             this.storyLink = document.createElement("input");
             this.storyLink.id = "storylink";
@@ -30,7 +40,7 @@ var OffWebReader;
             this.linkText = this.storyLink.value;
         }
         goButtonClick(e) {
-            e.preventDefault(); // stop the form submission.
+            e.preventDefault();
             this.linkText = document.getElementById("storylink").value.toString();
             const ele2 = document.getElementById("yqlResponse");
             ele2.innerText = "";
@@ -47,20 +57,38 @@ var OffWebReader;
         ajax(link) {
             this.xhr = new XMLHttpRequest;
             this.xhr.open('GET', link);
-            this.xhr.onload = () => this._onload();
+            this.xhr.onload = () => this._onLoad();
             this.xhr.send();
         }
-        _onload() {
+        _onLoad() {
             this.result = this.xhr.responseXML.querySelectorAll("results")[0].innerHTML;
             document.getElementById("yqlResponse").innerHTML += this.result;
         }
+        callPersist() {
+        }
+        callParserChapters() {
+        }
+    }
+    class LinkParser {
+        callQueryFormatter() {
+        }
+        callQueryFormatterChapters() {
+        }
+    }
+    class Persist {
+        save(story) {
+        }
+        update(story) {
+        }
+        delete(story) {
+        }
+    }
+    class Story {
+    }
+    class Chapter {
     }
     window.onload = () => {
         const inputHook = document.getElementById("inputurl");
         const inputUrl = new InputUrlComponent(inputHook);
-        //scraper.scrape("https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D'https%3A%2F%2Fwww.fictionpress.com%2Fs%2F2961893%2F1%2FMother-of-Learning'%20and%20xpath%3D'%2F%2F*%5B%40id%3D%22storytext%22%5D'");
-        //                https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%27https%3A%2F%2Fwww.fictionpress.com%2Fs%2F2961893%2F1%2FMother-of-Learning%27%20and%20xpath%3D%27%2F%2F*%5B%40id%3D%27storytext%27%5D%27
-        //select * from html where url='https://www.fictionpress.com/s/2961893/1/Mother-of-Learning' and xpath='//*[@id="storytext"]'
     };
 })(OffWebReader || (OffWebReader = {}));
-//# sourceMappingURL=app.js.map

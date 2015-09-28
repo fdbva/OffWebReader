@@ -7,6 +7,9 @@ module OffWebReader {
         private _xPath: string;
 
         constructor(urlInput: string, xpath: string) {
+            this.makeQuery(urlInput, xpath);
+        }
+        private makeQuery(urlInput: string, xpath: string) {
             this._yqlBaseUri = "https://query.yahooapis.com/v1/public/yql?";
             this._yqlQuery = `select * from html where url='${urlInput}'`;
             if (xpath != null) {
@@ -15,9 +18,14 @@ module OffWebReader {
             }
             this._yqlQuery = this._yqlBaseUri + "q=" + encodeURIComponent(this._yqlQuery);
         }
-
         get yqlQuery(): string {
             return this._yqlQuery;
+        }
+        callScraper() {
+            
+        }
+        callScraperChapters() {
+            
         }
     }
 
@@ -28,6 +36,10 @@ module OffWebReader {
         linkText: string;
 
         constructor(element: HTMLElement) {
+            this.createComponent(element);
+        }
+
+        private createComponent(element: HTMLElement) {
             this.element = element;
             this.storyLink = document.createElement("input");
             this.storyLink.id = "storylink";
@@ -54,10 +66,7 @@ module OffWebReader {
 
     class Scraper {
         private element: HTMLElement;
-        resultJson: any;
         result: any;
-        private http: any;
-        span: HTMLSpanElement;
         xhr: XMLHttpRequest;
 
         constructor(element: HTMLElement) {
@@ -68,13 +77,19 @@ module OffWebReader {
         ajax(link: string) {
             this.xhr = new XMLHttpRequest;
             this.xhr.open('GET', link);
-            this.xhr.onload = () => this._onload();
+            this.xhr.onload = () => this._onLoad();
             this.xhr.send();
         }
 
-        _onload() {
+        private _onLoad() {
             this.result = this.xhr.responseXML.querySelectorAll("results")[0].innerHTML;
             document.getElementById("yqlResponse").innerHTML += this.result;
+        }
+        callPersist() {
+            
+        }
+        callParserChapters() {
+            
         }
 
       /*scrape(link: string) {
@@ -92,7 +107,48 @@ module OffWebReader {
             });
         }*/
     }
+    class LinkParser
+    {
+        unformattedLinks: Array<string>;
+        formattedLinks: Array<string>;
 
+        callQueryFormatter() {
+            
+        }
+        callQueryFormatterChapters() {
+            
+        }
+    }
+    class Persist {
+        save(story: Story) {
+            
+        }
+        update(story: Story) {
+            
+        }
+        delete(story: Story) {
+            
+        }
+    }
+    class Story {
+        id: number;
+        insertLink: string;
+        numberOfChapters: number;
+        originalSiteName: string;
+        authorName: string;
+        chaptersIds: Array<number>;
+        readingPoint: number;
+
+    }
+    class Chapter {
+        id: number;
+        storyId: number;
+        chapterLink: string;
+        wordCount: number;
+        chapterText: string;
+        chapterNumber: number;
+        readingPoint: number;
+    }
 
     window.onload = () => {
         const inputHook = document.getElementById("inputurl");
