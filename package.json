@@ -1,0 +1,22 @@
+{
+  "name": "off-web-reader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raphamorim/OffWebReader.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/raphamorim/OffWebReader/issues"
+  },
+  "homepage": "https://github.com/raphamorim/OffWebReader#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-typescript": "^2.9.2"
+  }
+}
