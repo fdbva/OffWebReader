@@ -22,7 +22,6 @@ module OffWebReader {
             return this._yqlQuery;
         }
         callScraper() {
-            
         }
         callScraperChapters() {
             

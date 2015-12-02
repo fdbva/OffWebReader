@@ -5,7 +5,7 @@ gulp.task('default', ['ts', 'watch']);
 
 gulp.task('ts', function() {  
     gulp.src(['src/**/*.ts'])
-        .pipe(ts({module: 'commonjs'}))
+        .pipe(ts({module: 'commonjs', target: 'ES5'}))
         .js
         .pipe(gulp.dest('./assets/javascript'));
 });
