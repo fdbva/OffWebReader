@@ -1,9 +1,11 @@
 class Chapter {
-    // this.id;
-    // this.storyId;
-    // this.chapterLink;
-    // this.wordCount;
-    // this.chapterText;
-    // this.chapterNumber;
-    // this.readingPoint;
+	constructor() {
+    	this.id = Number();
+    	this.storyId = Number();
+    	this.chapterLink = String();
+    	this.wordCount = Number();
+    	this.chapterText = Number();
+    	this.chapterNumber = Number();
+    	this.readingPoint = Number();
+    }
 }

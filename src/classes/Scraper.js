@@ -1,4 +1,4 @@
-export class Scraper {
+class Scraper {
     constructor(element) {
         this.element = element;
         this.xhr = null;

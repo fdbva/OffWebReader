@@ -13,6 +13,7 @@ class QueryFormatter {
         }
         this.yqlQuery = this._yqlBaseUri.concat("q=" + encodeURIComponent(this.yqlQuery));
     }
+
     get yqlQuery() {
         return this.yqlQuery;
     }

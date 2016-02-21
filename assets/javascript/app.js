@@ -1,12 +1,28 @@
-"use strict";
+'use strict';
 
-module.exports = {};
+var btnGet, fanficitionInput;
+
+btnGet = document.querySelector('#greeter--btn');
+fanficitionInput = document.querySelector('#fanfiction--input');
+
+
+btnGet.addEventListener('click', function (e) {
+		return console.log(fanficitionInput.value);
+});
 "use strict";
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Chapter = function Chapter() {
-    _classCallCheck(this, Chapter);
+   _classCallCheck(this, Chapter);
+
+   this.id = Number();
+   this.storyId = Number();
+   this.chapterLink = String();
+   this.wordCount = Number();
+   this.chapterText = Number();
+   this.chapterNumber = Number();
+   this.readingPoint = Number();
 };
 "use strict";
 
@@ -93,13 +109,9 @@ var QueryFormatter = function () {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Scraper = exports.Scraper = function () {
+var Scraper = function () {
     function Scraper(element) {
         _classCallCheck(this, Scraper);
 
@@ -136,6 +148,14 @@ var Scraper = exports.Scraper = function () {
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Story = function Story() {
-    _classCallCheck(this, Story);
+   _classCallCheck(this, Story);
+
+   this.id = Number();
+   this.insertLink = String();
+   this.numberOfChapters = Number();
+   this.originalSiteName = String();
+   this.authorName = String();
+   this.chaptersIds = String();
+   this.readingPoint = Number();
 };
-//# sourceMappingURL=all.js.map
+//# sourceMappingURL=app.js.map

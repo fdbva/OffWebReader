@@ -1,9 +1,11 @@
 class Story {
-    // this.id;
-    // this.insertLink;
-    // this.numberOfChapters;
-    // this.originalSiteName;
-    // this.authorName;
-    // this.chaptersIds;
-    // this.readingPoint;
+	constructor() {
+    	this.id = Number();
+    	this.insertLink = String();
+    	this.numberOfChapters = Number();
+    	this.originalSiteName = String();
+    	this.authorName = String();
+    	this.chaptersIds = String();
+    	this.readingPoint = Number();
+    }
 }
