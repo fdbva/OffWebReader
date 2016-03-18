@@ -1,4 +1,7 @@
-class InputComponent {
+/* eslint-env browser*/
+var Scraper = require('Scraper');
+var QueryFormatter = require('QueryFormatter');
+export class InputComponent {
   constructor(element) {
     this.createComponent(element);
   }

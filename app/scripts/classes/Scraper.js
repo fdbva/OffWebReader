@@ -1,4 +1,5 @@
-class Scraper {
+/* eslint-env browser*/
+export class Scraper {
   constructor(element) {
     this.element = element;
     this.xhr = null;
@@ -18,4 +19,4 @@ class Scraper {
       0].innerHTML;
     document.getElementById('yqlResponse').innerHTML += this.result;
   }
-} 
+}
