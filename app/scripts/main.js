@@ -80,13 +80,11 @@
   }
 
   // Your custom JavaScript goes here
-  var btnGet, fanficitionInput;
-console.log('test');
-[btnGet, fanficitionInput] = [
-		document.querySelector('#greeter--btn'),
-		document.querySelector('#fanfiction--input')
-	];
-	
-
-btnGet.addEventListener('click', (e) => console.log(fanficitionInput.value));
+  var btnGet;
+  var fanficitionInput;
+  [btnGet, fanficitionInput] = [
+    document.querySelector('#greeter--btn'),
+    document.querySelector('#fanfiction--input')
+  ];
+  btnGet.addEventListener('click', console.log(fanficitionInput.value));
 })();
