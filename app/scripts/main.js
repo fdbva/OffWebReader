@@ -17,6 +17,7 @@
  *
  */
 /* eslint-env browser */
+/* global QueryFormatter*/
 (function() {
   'use strict';
 
@@ -80,6 +81,11 @@
   }
 
   // Your custom JavaScript goes here
+  console.log('before new query');
+  var a = new QueryFormatter();
+  console.log('after new query');
+  console.log(a.test);
+  console.log(a.yqlQuery);
   var btnGet;
   var fanficitionInput;
   [btnGet, fanficitionInput] = [

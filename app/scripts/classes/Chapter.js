@@ -1,4 +1,4 @@
-export class Chapter {
+export default class Chapter {
   constructor() {
     this.id = Number();
     this.storyId = Number();

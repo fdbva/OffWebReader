@@ -1,5 +1,7 @@
-export class QueryFormatter {
+export default class QueryFormatter {
   constructor(urlInput, xpath) {
+    this.yqlQuery = 'yqlQuery';
+    this.test = 'Class Works';
     this._makeQuery(urlInput, xpath);
   }
 

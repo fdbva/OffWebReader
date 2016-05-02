@@ -1,4 +1,4 @@
-export class Story {
+export default class Story {
   constructor() {
     this.id = Number();
     this.insertLink = String();

@@ -1,5 +1,5 @@
 /* eslint-env browser*/
-export class Scraper {
+export default class Scraper {
   constructor(element) {
     this.element = element;
     this.xhr = null;
