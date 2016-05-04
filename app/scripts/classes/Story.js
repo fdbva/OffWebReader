@@ -1,6 +1,6 @@
 export default class Story {
   constructor() {
-     this.id = Number();
+    this.id = Number();
     this.insertLink = String();
     this.numberOfChapters = Number();
     this.originalSiteName = String();
