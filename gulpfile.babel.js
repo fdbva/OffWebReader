@@ -27,6 +27,7 @@
 import path from 'path';
 import gulp from 'gulp';
 import del from 'del';
+import webpack from 'webpack-stream';
 import runSequence from 'run-sequence';
 import browserSync from 'browser-sync';
 import swPrecache from 'sw-precache';
@@ -101,29 +102,21 @@ gulp.task('styles', () => {
     .pipe(gulp.dest('dist/styles'));
 });
 
-// Concatenate and minify JavaScript. Optionally transpiles ES2015 code to ES5.
-// to enables ES2015 support remove the line `"only": "gulpfile.babel.js",` in the
-// `.babelrc` file.
-gulp.task('scripts', () =>
+gulp.task('concat-scripts', () =>
     gulp.src([
-      // Note: Since we are not using useref in the scripts build pipeline,
-      //       you need to explicitly list your scripts here in the right order
-      //       to be correctly concatenated
       './app/scripts/classes/*.js',
       './app/scripts/main.js'
-      // Other scripts
     ])
-      .pipe($.newer('.tmp/scripts'))
-      .pipe($.sourcemaps.init())
-      .pipe($.babel())
-      .pipe($.sourcemaps.write())
-      .pipe(gulp.dest('.tmp/scripts'))
-      .pipe($.concat('main.min.js'))
-      .pipe($.uglify({preserveComments: 'some'}))
-      // Output files
-      .pipe($.size({title: 'scripts'}))
-      .pipe($.sourcemaps.write('.'))
+      .pipe($.concat('app.js'))
       .pipe(gulp.dest('dist/scripts'))
+);
+
+gulp.task('scripts', () =>
+    gulp.src([
+      './dist/scripts/app.js'
+    ])
+      .pipe(webpack( require('./webpack.config.js') ))
+      .pipe(gulp.dest('.'))
 );
 
 // Scan your HTML for assets & optimize them
@@ -202,10 +195,10 @@ gulp.task('serve:dist', ['default'], () =>
 );
 
 // Build production files, the default task
-gulp.task('default', ['clean'], cb =>
+gulp.task('default', ['clean', 'concat-scripts'], cb =>
   runSequence(
     'styles',
-    ['lint', 'html', 'scripts', 'images', 'copy'],
+    ['lint', 'html', 'images', 'copy', 'scripts'],
     'generate-service-worker',
     cb
   )
